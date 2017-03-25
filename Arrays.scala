@@ -16,3 +16,8 @@ greetings(2) = "Sridhar."
 
 for(greet <- greetings)
   print(greet)
+
+println()
+// another way
+for( i <- 0 to 2)
+  print(greetings(i))
