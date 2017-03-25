@@ -4,3 +4,5 @@ println(numbers(3))
 // Arrays are mutable and hence will work
 numbers(3) = 10
 println(numbers(3))
+for(number <- numbers)
+  print(number)
