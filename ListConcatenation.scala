@@ -14,3 +14,5 @@ val oneToo = one ::: two
 println(oneToo)
 val zeroOneTwo = 0 :: oneToo
 println(zeroOneTwo)
+
+zeroOneTwo.foreach(num => print(num))
