@@ -13,3 +13,11 @@ class Thermometer {
 val t = new Thermometer
 t. celsius = 100
 println(t)
+t.farenheit = -40
+println(t)
+t.farenheit = 66
+println(t)
+t.farenheit = 76
+println(t)
+t.farenheit = 86
+println(t)
