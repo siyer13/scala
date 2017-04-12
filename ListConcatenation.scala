@@ -15,5 +15,4 @@ println(oneToo)
 val zeroOneTwo = 0 :: oneToo
 println(zeroOneTwo)
 
-
-http://download.virtualbox.org/virtualbox/2.0.4/VBoxGuestAdditions_2.0.4.iso
+zeroOneTwo.foreach(num => print(num))
