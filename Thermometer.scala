@@ -19,5 +19,5 @@ t.farenheit = 66
 println(t)
 t.farenheit = 76
 println(t)
-t.farenheit = 86
+t.farenheit = 8n6
 println(t)
