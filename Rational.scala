@@ -1,3 +1,4 @@
+
 class Rational (n: Int, d: Int) {
     // The require method takes one boolean parameter.
     // If the passed value is true, require will return normally.
