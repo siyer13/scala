@@ -1,4 +1,4 @@
-def double_method(i: Int) = { i * 2 }
+  def double_method(i: Int) = { i * 2 }
 println(double_method(2))
 
 
