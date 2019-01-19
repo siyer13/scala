@@ -33,13 +33,13 @@ object BatchJobUpdate  {
 		
 		val selectQueryStatement: NamedParameterStatement  = new NamedParameterStatement(connection, selectQuery)
 		
-		selectQueryStatement.setString("p_cdlp_id", cdlpID)
+		selectQueryStatement.setInt("p_cdlp_id", cdlpID)
 		selectQueryStatement.setString("p_reporting_prd", rptPrd)
 		selectQueryStatement.setString("p_versn", version)
 		selectQueryStatement.setString("p_unique_id", spkUniqueId)
 		selectQueryStatement.setString("p_remarks", "RISK(02) Data" + spkUniqueId)
 		
-		selectQueryStatement.executeQuery(selectQuery)
+		selectQueryStatement.executeQuery()
 		
 		connection.close
 	}
