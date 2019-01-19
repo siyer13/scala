@@ -20,7 +20,7 @@ object BatchJobUpdate  {
 		cdlpSQLQueryStatement.setString("c_data_unit", dataUnit)
 		cdlpSQLQueryStatement.setString("c_oraganization_code", organizationCode)
 		
-		var rs: ResultSet = cdlpSQLQueryStatement.executeQuery(cdlpSQLQuery)
+		var rs: ResultSet = cdlpSQLQueryStatement.executeQuery()
 		
 		var cdlpID = 9999
 		if(rs.next()) {
