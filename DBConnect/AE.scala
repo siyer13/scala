@@ -1,11 +1,16 @@
-import java.sql.{Connection,DriverManager,ResultSet}
+import java.sql.{Connection,DriverManager,ResultSet,SQLException}
 import language.postfixOps
 import org.apache.sqluitls.sqlutil.NamedParameterStatement
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor
 
 object BatchJobUpdate  {
     var connection:Connection = null
     def queryDB(url : String, driver : String, username : String, password : String, uniqueID : String, countryCode : String, productCode : String, dataUnit : String, organizationCode : String, rptPrd : String, version : String, spkUniqueId : String)  {
         Class.forName(driver)
+	val decryptor: StandardPBEStringEncryptor = new StandardPBEStringEncryptor()
+	val secretKey = "spark-oozie-workflow"  // you can input your password here
+	decryptor.setPassword(secretKey)
+	 try {   
         connection = DriverManager.getConnection(url,username,password)
         val statement = connection.createStatement
         statement.executeUpdate("UPDATE RRTS_PROC_CTRL_AUDIT SET AWP_PROC_END_TIME = SYSDATE WHERE PROC_NM = 'STD INGESTION' AND UNIQUE_ID ='" + uniqueID + "'")
@@ -41,6 +46,11 @@ object BatchJobUpdate  {
 		
 		selectQueryStatement.executeQuery()
 		
-		connection.close
+		} catch {
+		    case sqlEx: SQLException => print(SqlEx.printStackTrace)
+			case e: Exception => print(e.printStackTrace)
+		}finally {
+		 connection.close
+		}   
 	}
 }
